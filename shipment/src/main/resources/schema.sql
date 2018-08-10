@@ -20,35 +20,20 @@ CREATE TABLE IF NOT EXISTS address (
   street VARCHAR(250),
   city VARCHAR(100),
   zipcode VARCHAR(10),
-  country_id INTEGER
+  country_id INTEGER REFERENCES countries (id)
 );
-ALTER TABLE address ADD CONSTRAINT address_country_id_fk FOREIGN KEY (country_id) REFERENCES countries (id);
-
 
 CREATE TABLE IF NOT EXISTS projects (
-  id SERIAL,
+  id SERIAL PRIMARY KEY ,
   project_number VARCHAR(10),
-  shipment_type VARCHAR(10),
-  shipment_direction VARCHAR(10),
-  origin_id INTEGER NOT NULL,
-  destination_id INTEGER NOT NULL,
-  shipper_id INTEGER NOT NULL,
-  consignee_id INTEGER NOT NULL,
-  carrier_id INTEGER NOT NULL,
+  shipment_type VARCHAR(10) CHECK ( shipment_type IN ('air', 'sea', 'road', 'rail') ),
+  shipment_direction VARCHAR(10)  CHECK ( shipment_direction IN ('export', 'import', 'domestic') ),
+  origin_id INTEGER NOT NULL REFERENCES countries (id),
+  destination_id INTEGER NOT NULL REFERENCES countries (id),
+  shipper_id INTEGER NOT NULL REFERENCES organizations (id),
+  consignee_id INTEGER NOT NULL REFERENCES organizations (id),
+  carrier_id INTEGER NOT NULL REFERENCES organizations (id),
   weight DOUBLE PRECISION,
-  incoterms VARCHAR(3),
+  incoterms VARCHAR(3) CHECK ( incoterms IN ('EXW', 'FCA', 'FAS', 'FOB', 'CFR', 'CIF', 'CPT', 'DAF', 'DES', 'DDU', 'DDP', 'DAP') ),
   notes TEXT
 );
-
-ALTER TABLE projects ADD constraint projects_id_pk PRIMARY KEY (id);
-
-ALTER TABLE projects ADD CONSTRAINT projects_origin_id_fk FOREIGN KEY (origin_id) REFERENCES countries (id);
-ALTER TABLE projects ADD CONSTRAINT projects_destination_id_fk FOREIGN KEY (destination_id) REFERENCES countries (id);
-
-ALTER TABLE projects ADD CONSTRAINT projects_shipper_id_fk FOREIGN KEY (shipper_id) REFERENCES organizations (id);
-ALTER TABLE projects ADD CONSTRAINT projects_consignee_id_fk FOREIGN KEY (consignee_id) REFERENCES organizations (id);
-ALTER TABLE projects ADD CONSTRAINT projects_carrier_id_fk FOREIGN KEY (carrier_id) REFERENCES organizations (id);
-
-ALTER TABLE projects ADD CONSTRAINT projects_shipment_type_chk CHECK ( shipment_type IN ('air', 'sea', 'road', 'rail') );
-ALTER TABLE projects ADD CONSTRAINT projects_shipment_direction_chk CHECK ( shipment_direction IN ('export', 'import', 'domestic') );
-ALTER TABLE projects ADD CONSTRAINT projects_incoterms_chk CHECK ( incoterms IN ('EXW', 'FCA', 'FAS', 'FOB', 'CFR', 'CIF', 'CPT', 'DAF', 'DES', 'DDU', 'DDP', 'DAP') );
