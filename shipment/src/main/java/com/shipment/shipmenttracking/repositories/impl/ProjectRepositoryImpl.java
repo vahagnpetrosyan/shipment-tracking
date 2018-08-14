@@ -10,9 +10,12 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+//TODO more generic implene
+@Repository
 public class ProjectRepositoryImpl implements ProjectRepository{
     private static final String CREATION_SQL_STMT =
             "INSERT INTO projects (project_number, shipment_type, shipment_direction, origin_id, destination_id, " +
@@ -33,6 +36,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
     private static final String UPDATE_SQL_STMT = "UPDATE projects SET %s = ? WHERE id = ?";
     private static final String GET_ONE_SQL_STMT = "SELECT * from projects WHERE id = ?";
     private static final String SELECT_ALL = "SELECT * FROM projects";
+    private static final String DELETE_SQL_STMT = "DELETE FROM projects WHERE id = ?";
 
 
     @Autowired
@@ -71,7 +75,7 @@ public class ProjectRepositoryImpl implements ProjectRepository{
 
     @Override
     public void delete(Integer id) throws DataAccessException {
-
+        jdbcTemplate.update(DELETE_SQL_STMT, id);
     }
 
     @Override
