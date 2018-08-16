@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 //TODO more generic implementation
+@SuppressWarnings("Duplicates")
 @Repository
 public class OrganizationRepositoryImpl implements OrganizationRepository {
 

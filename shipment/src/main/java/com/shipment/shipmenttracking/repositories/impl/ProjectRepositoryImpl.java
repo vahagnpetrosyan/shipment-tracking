@@ -14,7 +14,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-//TODO more generic implene
+//TODO more generic implenentation
+@SuppressWarnings("Duplicates")
 @Repository
 public class ProjectRepositoryImpl implements ProjectRepository{
     private static final String CREATION_SQL_STMT =

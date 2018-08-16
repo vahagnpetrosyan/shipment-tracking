@@ -1,35 +1,34 @@
-package com.shipment.shipmenttracking.entities;
+package com.shipment.shipmenttracking.dtos;
 
-import com.shipment.shipmenttracking.dtos.AddressDto;
+import com.shipment.shipmenttracking.entities.AddressEntity;
 
-public class AddressEntity {
-    private Integer id;
-    private Integer organizationId;
-    private Integer countryId;
+public class AddressDto {
+    private int id;
+    private int organizationId;
+    private int countryId;
     private String street;
     private String city;
     private String zipcode;
 
-    public AddressEntity(AddressDto addressDto){
-        this.id = addressDto.getId();
-        this.organizationId = addressDto.getOrganizationId();
-        this.countryId = addressDto.getCountryId();
-        this.street = addressDto.getStreet();
-        this.city = addressDto.getCity();
-        this.zipcode = addressDto.getZipcode();
+    public AddressDto(AddressEntity addressEntity){
+        this.id = addressEntity.getId();
+        this.organizationId = addressEntity.getOrganizationId();
+        this.countryId = addressEntity.getCountryId();
+        this.street = addressEntity.getStreet();
+        this.city = addressEntity.getCity();
+        this.zipcode = addressEntity.getZipcode();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AddressEntity)) return false;
+        if (!(o instanceof AddressDto)) return false;
 
-        AddressEntity that = (AddressEntity) o;
+        AddressDto that = (AddressDto) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (organizationId != null ? !organizationId.equals(that.organizationId) : that.organizationId != null)
-            return false;
-        if (countryId != null ? !countryId.equals(that.countryId) : that.countryId != null) return false;
+        if (id != that.id) return false;
+        if (organizationId != that.organizationId) return false;
+        if (countryId != that.countryId) return false;
         if (street != null ? !street.equals(that.street) : that.street != null) return false;
         if (city != null ? !city.equals(that.city) : that.city != null) return false;
         return zipcode != null ? zipcode.equals(that.zipcode) : that.zipcode == null;
@@ -37,9 +36,9 @@ public class AddressEntity {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (organizationId != null ? organizationId.hashCode() : 0);
-        result = 31 * result + (countryId != null ? countryId.hashCode() : 0);
+        int result = id;
+        result = 31 * result + organizationId;
+        result = 31 * result + countryId;
         result = 31 * result + (street != null ? street.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (zipcode != null ? zipcode.hashCode() : 0);
@@ -48,7 +47,7 @@ public class AddressEntity {
 
     @Override
     public String toString() {
-        return "AddressEntity{" +
+        return "AddressDto{" +
                 "id=" + id +
                 ", organizationId=" + organizationId +
                 ", countryId=" + countryId +
@@ -58,27 +57,27 @@ public class AddressEntity {
                 '}';
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getOrganizationId() {
+    public int getOrganizationId() {
         return organizationId;
     }
 
-    public void setOrganizationId(Integer organizationId) {
+    public void setOrganizationId(int organizationId) {
         this.organizationId = organizationId;
     }
 
-    public Integer getCountryId() {
+    public int getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(Integer countryId) {
+    public void setCountryId(int countryId) {
         this.countryId = countryId;
     }
 

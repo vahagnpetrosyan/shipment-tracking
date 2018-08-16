@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@SuppressWarnings("Duplicates")
 @Repository
 public class CountryRepositoryImpl implements CountryRepository{
 
