@@ -16,7 +16,7 @@ CREATE TABLE countries (
 
 CREATE TABLE address (
   id SERIAL PRIMARY KEY,
-  organization_id INTEGER,
+  organization_id INTEGER UNIQUE,
   street VARCHAR(250),
   city VARCHAR(100),
   zipcode VARCHAR(10),

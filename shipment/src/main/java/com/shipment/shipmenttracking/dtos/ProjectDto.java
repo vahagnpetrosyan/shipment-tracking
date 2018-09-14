@@ -3,7 +3,6 @@ package com.shipment.shipmenttracking.dtos;
 import javax.validation.constraints.NotNull;
 
 public class ProjectDto {
-    @NotNull
     private int id;
     private String projectNumber;
     @NotNull

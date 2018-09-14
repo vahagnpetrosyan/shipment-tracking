@@ -1,8 +1,12 @@
 package com.shipment.shipmenttracking.dtos;
 
+import javax.validation.constraints.NotNull;
+
 public class CountryDto {
     private int id;
+    @NotNull
     private String name;
+    @NotNull
     private String code;
 
     @Override
