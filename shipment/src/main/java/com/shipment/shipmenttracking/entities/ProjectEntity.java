@@ -1,6 +1,10 @@
 package com.shipment.shipmenttracking.entities;
 
+import org.springframework.data.annotation.Id;
+
+
 public class ProjectEntity {
+    @Id
     private Integer id;
     private String projectNumber;
     private String shipmentType;

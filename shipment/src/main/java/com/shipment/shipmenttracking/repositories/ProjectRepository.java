@@ -1,15 +1,16 @@
 package com.shipment.shipmenttracking.repositories;
 
 import com.shipment.shipmenttracking.entities.ProjectEntity;
-import org.springframework.dao.DataAccessException;
+import org.springframework.data.r2dbc.repository.R2dbcRepository;
+import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-import java.util.List;
+@Repository
+public interface ProjectRepository extends R2dbcRepository<ProjectEntity, Integer> {
 
-public interface ProjectRepository {
-
-    ProjectEntity create(ProjectEntity projectEntity) throws DataAccessException;
-    void update(ProjectEntity projectEntity) throws DataAccessException;
-    void delete(Integer id) throws DataAccessException;
-    ProjectEntity findOneById(Integer id) throws DataAccessException;
-    List<ProjectEntity> findAll() throws DataAccessException;
+    Mono<ProjectEntity> save(ProjectEntity projectEntity);
+    Mono<Void> delete(ProjectEntity projectEntity);
+    Mono<ProjectEntity> findById(Integer id);
+    Flux<ProjectEntity> findAll();
 }
