@@ -1,8 +1,9 @@
 package com.shipment.shipmenttracking.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
-
+@Table("projects")
 public class ProjectEntity {
     @Id
     private Integer id;
@@ -60,6 +61,7 @@ public class ProjectEntity {
                 "id=" + id +
                 ", projectNumber='" + projectNumber + '\'' +
                 ", shipmentDirection='" + shipmentDirection + '\'' +
+                ", shipmentType='" + shipmentType + '\'' +
                 ", originId=" + originId +
                 ", destinationId=" + destinationId +
                 ", shipperId=" + shipperId +

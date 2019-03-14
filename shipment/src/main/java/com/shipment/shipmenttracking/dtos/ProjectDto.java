@@ -5,22 +5,22 @@ import javax.validation.constraints.NotNull;
 public class ProjectDto {
     private int id;
     private String projectNumber;
-    @NotNull
+//    @NotNull
     private String shipmentType;
-    @NotNull
+//    @NotNull
     private String shipmentDirection;
-    @NotNull
+//    @NotNull
     private CountryDto origin;
-    @NotNull
+//    @NotNull
     private CountryDto destination;
-    @NotNull
+//    @NotNull
     private OrganizationDto shipper;
-    @NotNull
+//    @NotNull
     private OrganizationDto consignee;
-    @NotNull
+//    @NotNull
     private OrganizationDto carrier;
     private double weight;
-    @NotNull
+//    @NotNull
     private String incoterms;
     private String notes;
 
