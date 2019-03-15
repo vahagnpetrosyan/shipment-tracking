@@ -5,15 +5,15 @@ import javax.validation.constraints.NotNull;
 
 public class OrganizationDto {
     private int id;
-    @NotNull
+//    @NotNull
     private String name;
     private String registryNumber;
     private String contactPhone;
-    @Email
+//    @Email
     private String contactEmail;
-    @NotNull
+//    @NotNull
     private AddressDto addressDto;
-    @NotNull
+//    @NotNull
     private CountryDto countryDto;
 
     @Override

@@ -8,9 +8,12 @@ import reactor.core.publisher.Mono;
 
 @Repository
 public interface ProjectRepository extends R2dbcRepository<ProjectEntity, Integer> {
-
-    Mono<ProjectEntity> save(ProjectEntity projectEntity);
+    @Override
+    <S extends ProjectEntity> Mono<S> save(S entity);
+    @Override
     Mono<Void> delete(ProjectEntity projectEntity);
+    @Override
     Mono<ProjectEntity> findById(Integer id);
+    @Override
     Flux<ProjectEntity> findAll();
 }
