@@ -36,7 +36,6 @@ flyway {
 	password = 'postgre'
 }
 
-clean.dependsOn(flywayClean)
 build.dependsOn(flywayMigrate)
 bootRun.dependsOn(build)
 
@@ -44,6 +43,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
 	compile('org.springframework.boot:spring-boot-starter-webflux')
 	compile (group: 'io.projectreactor', name: 'reactor-core', version: '3.2.6.RELEASE')
+	compile (group: 'org.springframework.data', name: 'spring-data-commons', version: '2.1.5.RELEASE')
 	compile(group: 'org.springframework.data', name: 'spring-data-r2dbc', version: '1.0.0.BUILD-SNAPSHOT')
 	compile(group: 'io.r2dbc', name: 'r2dbc-postgresql', version: '1.0.0.M6')
 	compile(group: 'org.flywaydb', name: 'flyway-core', version: '5.2.4')

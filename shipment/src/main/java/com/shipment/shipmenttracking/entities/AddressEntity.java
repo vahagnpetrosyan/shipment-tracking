@@ -1,8 +1,12 @@
 package com.shipment.shipmenttracking.entities;
 
 import com.shipment.shipmenttracking.dtos.AddressDto;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table("address")
 public class AddressEntity {
+    @Id
     private Integer id;
     private Integer organizationId;
     private Integer countryId;
