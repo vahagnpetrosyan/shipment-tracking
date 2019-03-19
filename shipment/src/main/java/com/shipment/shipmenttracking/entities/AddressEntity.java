@@ -14,15 +14,6 @@ public class AddressEntity {
     private String city;
     private String zipcode;
 
-    public AddressEntity(AddressDto addressDto){
-        this.id = addressDto.getId();
-        this.organizationId = addressDto.getOrganizationId();
-        this.countryId = addressDto.getCountryId();
-        this.street = addressDto.getStreet();
-        this.city = addressDto.getCity();
-        this.zipcode = addressDto.getZipcode();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

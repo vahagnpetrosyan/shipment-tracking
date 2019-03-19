@@ -1,7 +1,6 @@
 package com.shipment.shipmenttracking.helpers;
 
 import com.shipment.shipmenttracking.dtos.OrganizationDto;
-import com.shipment.shipmenttracking.entities.AddressEntity;
 import com.shipment.shipmenttracking.entities.OrganizationEntity;
 import com.shipment.shipmenttracking.repositories.AddressRepository;
 import com.shipment.shipmenttracking.repositories.CountryRepository;

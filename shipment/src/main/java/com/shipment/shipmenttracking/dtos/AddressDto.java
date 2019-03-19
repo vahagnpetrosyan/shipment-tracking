@@ -1,23 +1,17 @@
 package com.shipment.shipmenttracking.dtos;
 
-import com.shipment.shipmenttracking.entities.AddressEntity;
+import javax.validation.constraints.NotNull;
 
 public class AddressDto {
     private int id;
     private int organizationId;
     private int countryId;
+    @NotNull
     private String street;
+    @NotNull
     private String city;
+    @NotNull
     private String zipcode;
-
-    public AddressDto(AddressEntity addressEntity){
-        this.id = addressEntity.getId();
-        this.organizationId = addressEntity.getOrganizationId();
-        this.countryId = addressEntity.getCountryId();
-        this.street = addressEntity.getStreet();
-        this.city = addressEntity.getCity();
-        this.zipcode = addressEntity.getZipcode();
-    }
 
     @Override
     public boolean equals(Object o) {
